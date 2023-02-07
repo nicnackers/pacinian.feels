@@ -1,0 +1,43 @@
+/*
+Basic FSR input that output emotive text to serial monitor for artwork developed at AADK spain. 
+*/
+
+int pacinian[]= {A0, A2, A4};
+
+void setup(){
+  Serial.begin(9600);
+}
+
+void loop(){
+  Serial.println("working...");
+ int touch0 = analogRead(pacinian[0]);
+ int touch1 = analogRead(pacinian[1]);
+ int touch2 = analogRead(pacinian[2]);
+ //int touch3 = analogRead(pacinian[3]);
+
+//remeber to change i when adding more^ 
+
+  if (touch0>1){
+ 	Serial.print("Force sensor reading 0 = ");
+ 	Serial.println(touch0); 
+ 	delay(1000);
+  }
+  if (touch1>1){
+ 	Serial.print("Force sensor reading 1 = ");
+  	Serial.println(touch1);  
+    delay(1000);
+	}
+  if (touch2>0){
+ 	Serial.print("Force sensor reading 2 = ");
+  	Serial.println(touch2); 
+    delay(1000);
+	}
+ /* if (touch3>0){
+ 	Serial.print("Force sensor reading 3 = ");
+  	Serial.println(touch3); 
+    delay(1000);
+	}*/
+delay(1000);
+}
+
+
