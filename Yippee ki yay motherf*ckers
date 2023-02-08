@@ -3,32 +3,28 @@ code sketch for behaviour of pacinian receptors (code untested and format likely
 */
 
 //the amorphous electronic body
-int hip = analogRead(A0);
-int nip = analogRead(A2); 
-int bip1 = analogRead(A4);
-int bip2 = analogRead(A6);
-int lip = analogRead(A8);
-
-int hipclip = 0;
-bool mood = false;
 
 void setup(){
   Serial.begin(9600);
 }
 
 void loop(){
+  Serial.println("go on, touch me...");
+int hip = analogRead(A0);
+int nip = analogRead(A2); 
+int bip1 = analogRead(A4);
+int bip2 = analogRead(A3);
+int lip = analogRead(A5);
 
-/* assumes when int = 0 condition evaluates false
-serial.print conditionals - check format!
-*/
-
-  Serial.println("go on, touch me...");  
+int hipclip = 0;
+bool mood = false;
   
   if (lip) {
     Serial.println("lips kissed");  
   //c fibre and alpha fibre (who kisses fast?)
-  Serial.println (lip>100?("tingles.. "):("whoa there easy tigre");
+  Serial.println (lip<200?("tingles.. "):("whoa there easy tigre"));
   mood=true;
+    delay(1000);
   }
   
   if (bip1||bip2){
@@ -36,21 +32,23 @@ serial.print conditionals - check format!
   //exhibit gate control theory of pain i.e. multi sensor input for pleasure 
     bool loner = false;
     Serial.println(bip1&&bip2? ("Ooh that's better"):("ow! no!")); //test to see if prints ow when b1 or b2 is pressed. 
-    Serial.println(bip1?F("if bip1 alone and true"):F("if bip2 true");
+  delay(1000);
   }
   
   if (hip) { 
     Serial.println("hip clipped");  
     hipclip++;
   //induction phase of long term potentiation. 
- if(hipclip<10||hipclip%2=0)
+ if(hipclip<10||hipclip%2==0)
     Serial.println("do you want to hug me?");
-    }
+  delay(1000);  
+  }
     
   if (nip) {
     Serial.println("nipple fondled");  
   //affective motivational 
   Serial.println(mood?"mm that feels good":"Please not now");
+  delay(1000);
   }
   
 delay(1000);
